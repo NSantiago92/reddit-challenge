@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
-import { Text } from "react-native";
+import WebView from "react-native-webview";
 import { RootStackParams } from "../../App";
 
 type NavProps = NativeStackScreenProps<RootStackParams, "Post">;
@@ -13,7 +13,7 @@ interface PostScreenProps {
 const PostScreen = ({ route }: PostScreenProps): JSX.Element => {
   const { url } = route.params;
 
-  return <Text>Post Web view: {url}</Text>;
+  return <WebView source={{ uri: url }} style={{ marginTop: 20 }} />;
 };
 
 export default PostScreen;
