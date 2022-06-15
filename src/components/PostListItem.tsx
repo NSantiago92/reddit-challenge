@@ -11,6 +11,17 @@ interface PostListItemProps {
 }
 
 const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
+  const thumbnailSrc = (() => {
+    switch (post.thumbnail) {
+      case "" || "self" || "image" || "default":
+        return require("../../assets/default_thumbnail.png");
+      case "nsfw":
+        return require("../../assets/default_thumbnail_nsfw.png");
+      default:
+        return { uri: post.thumbnail };
+    }
+  })();
+
   return (
     <TouchableOpacity
       onPress={() => navigation.push("Post", { url: post.url })}
@@ -29,7 +40,7 @@ const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
           </View>
         </View>
         <View style={styles.thumbnailContainer}>
-          <Image source={{ uri: post.thumbnail }} style={styles.thumbnail} />
+          <Image source={thumbnailSrc} style={styles.thumbnail} />
         </View>
       </View>
     </TouchableOpacity>
