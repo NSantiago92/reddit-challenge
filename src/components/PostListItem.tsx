@@ -32,8 +32,11 @@ const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
           <Text style={styles.score}>{kFormatter(post.score)}</Text>
         </View>
         <View style={styles.detailsContainer}>
-          <Text style={styles.title}>{post.title}</Text>
-          <Text style={styles.subreddit}>{post.subreddit}</Text>
+          <Text style={styles.title}>
+            {post.title}
+            <Text style={styles.subreddit}> ({post.subreddit})</Text>
+          </Text>
+
           <View style={styles.detailsSubContainer}>
             <Text style={styles.comments}>{post.numComments} comments</Text>
             <Text style={styles.date}>
@@ -74,12 +77,13 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   title: {
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: "bold",
   },
   subreddit: {
     fontSize: 13,
-    alignSelf: "flex-end",
+    fontWeight: "normal",
+    color: "#575757",
   },
   comments: {
     fontSize: 13,

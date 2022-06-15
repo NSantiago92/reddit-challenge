@@ -16,7 +16,7 @@ export async function getPosts(): Promise<Post[]> {
         url,
         num_comments: numComments,
         created_utc,
-        subreddit,
+        subreddit_name_prefixed: subreddit,
       },
     }) => ({
       author,
