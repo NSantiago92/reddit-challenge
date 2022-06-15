@@ -1,7 +1,9 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { RootStackParams } from "../../App";
+import { Post } from "../model";
+import { getPosts } from "../service";
 
 type NavProps = NativeStackScreenProps<RootStackParams, "Subreddit">;
 
@@ -11,14 +13,24 @@ interface SubredditScreenProps {
 }
 
 const SubredditScreen = ({ navigation }: SubredditScreenProps): JSX.Element => {
+  const [posts, setPosts] = useState<Post[] | null>(null);
+  useEffect(() => {
+    getPosts().then((p) => {
+      setPosts(p);
+      console.log(p.length);
+    });
+  }, []);
   return (
     <View>
-      <Pressable
-        onPress={() => navigation.navigate("Post", { url: "www.google.com" })}
-      >
-        <Text>post</Text>
-      </Pressable>
-      <Text>SubredditScreen view</Text>
+      {posts &&
+        posts.map((p) => (
+          <Pressable
+            onPress={() => navigation.navigate("Post", { url: p.url })}
+            key={p.id}
+          >
+            <Text>{p.title}</Text>
+          </Pressable>
+        ))}
     </View>
   );
 };
