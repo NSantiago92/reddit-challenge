@@ -39,9 +39,7 @@ const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
 
           <View style={styles.detailsSubContainer}>
             <Text style={styles.comments}>{post.numComments} comments</Text>
-            <Text style={styles.date}>
-              {relativeDate(post.created)} days ago
-            </Text>
+            <Text style={styles.date}>{relativeDate(post.created)}</Text>
           </View>
         </View>
         <View style={styles.thumbnailContainer}>
