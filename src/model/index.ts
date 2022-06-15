@@ -9,3 +9,6 @@ export type Post = {
   created: Date;
   subreddit: string;
 };
+
+export const SORT_OPTIONS = ["hot", "new", "top", "controversial"] as const;
+export type SortBy = typeof SORT_OPTIONS[number];

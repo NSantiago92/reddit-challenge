@@ -1,7 +1,12 @@
-import { Post } from "../model";
+import { Post, SortBy } from "../model";
 
-export async function getPosts(): Promise<Post[]> {
-  const response = await fetch("https://api.reddit.com/r/pics/hot.json");
+export async function getPosts(
+  sortBy: SortBy,
+  subreddit: string
+): Promise<Post[]> {
+  const response = await fetch(
+    `https://api.reddit.com/r/${subreddit}/${sortBy}.json`
+  );
   const {
     data: { children },
   } = await response.json();

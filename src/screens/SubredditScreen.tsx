@@ -1,9 +1,10 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
-import { FlatList, Pressable, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { RootStackParams } from "../../App";
 import PostListItem from "../components/PostListItem";
-import { Post } from "../model";
+import SortByMenu from "../components/SortByMenu";
+import { Post, SortBy } from "../model";
 import { getPosts } from "../service";
 
 export type SubredditNavProps = NativeStackScreenProps<
@@ -18,16 +19,20 @@ interface SubredditScreenProps {
 
 const SubredditScreen = ({ navigation }: SubredditScreenProps): JSX.Element => {
   const [posts, setPosts] = useState<Post[] | null>(null);
+  const [sortBy, setSortBy] = useState<SortBy>("new");
   useEffect(() => {
-    getPosts().then((p) => {
+    getPosts(sortBy, "pics").then((p) => {
       setPosts(p);
     });
-  }, []);
+  }, [sortBy]);
   return (
     <View>
       {posts && (
         <FlatList
           data={posts}
+          ListHeaderComponent={
+            <SortByMenu sortBy={sortBy} setSortBy={setSortBy} />
+          }
           renderItem={({ item }) => (
             <PostListItem post={item} navigation={navigation} />
           )}
