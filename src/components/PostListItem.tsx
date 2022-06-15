@@ -25,7 +25,9 @@ const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.push("Post", { url: post.url })}
+      onPress={() =>
+        navigation.push("Post", { url: post.url, title: post.title })
+      }
     >
       <View style={styles.container}>
         <View style={styles.scoreContainer}>
