@@ -1,10 +1,24 @@
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet } from "react-native";
+import PostScreen from "./src/screens/PostScreen";
+import SubredditScreen from "./src/screens/SubredditScreen";
+
+export type RootStackParams = {
+  Subreddit: undefined;
+  Post: { url: string };
+};
+
+const rootStack = createNativeStackNavigator<RootStackParams>();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Reddit challenge</Text>
-    </View>
+    <NavigationContainer>
+      <rootStack.Navigator initialRouteName="Subreddit">
+        <rootStack.Screen name="Subreddit" component={SubredditScreen} />
+        <rootStack.Screen name="Post" component={PostScreen} />
+      </rootStack.Navigator>
+    </NavigationContainer>
   );
 }
 
