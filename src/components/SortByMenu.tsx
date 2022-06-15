@@ -16,7 +16,11 @@ const SortByMenu = ({ sortBy, setSortBy }: SortByMenuProps): JSX.Element => {
           key={s}
           style={s === sortBy ? styles.buttonSel : styles.button}
         >
-          <Text style={s === sortBy ? styles.buttonTextSel : styles.buttonText}>
+          <Text
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            style={s === sortBy ? styles.buttonTextSel : styles.buttonText}
+          >
             {s}
           </Text>
         </TouchableOpacity>
@@ -29,6 +33,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     flexDirection: "row",
+    justifyContent: "space-evenly",
     marginBottom: 3,
     shadowColor: "#000",
     shadowOffset: {
@@ -40,25 +45,23 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   button: {
-    flex: 1,
-    paddingBottom: 10,
-    paddingTop: 10,
+    flexBasis: 100,
+    paddingBottom: 15,
+    paddingTop: 15,
     backgroundColor: "white",
   },
   buttonText: {
-    fontSize: 16,
     textAlign: "center",
     color: "#6495ed",
     fontWeight: "bold",
   },
   buttonSel: {
-    flex: 1,
-    paddingBottom: 10,
-    paddingTop: 10,
+    flexBasis: 100,
+    paddingBottom: 15,
+    paddingTop: 15,
     backgroundColor: "#6495ed",
   },
   buttonTextSel: {
-    fontSize: 16,
     textAlign: "center",
     color: "white",
     fontWeight: "bold",
