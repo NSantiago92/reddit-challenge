@@ -1,15 +1,19 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { FlatList, Pressable, Text, View } from "react-native";
 import { RootStackParams } from "../../App";
+import PostListItem from "../components/PostListItem";
 import { Post } from "../model";
 import { getPosts } from "../service";
 
-type NavProps = NativeStackScreenProps<RootStackParams, "Subreddit">;
+export type SubredditNavProps = NativeStackScreenProps<
+  RootStackParams,
+  "Subreddit"
+>;
 
 interface SubredditScreenProps {
-  navigation: NavProps["navigation"];
-  route: NavProps["route"];
+  navigation: SubredditNavProps["navigation"];
+  route: SubredditNavProps["route"];
 }
 
 const SubredditScreen = ({ navigation }: SubredditScreenProps): JSX.Element => {
@@ -17,20 +21,19 @@ const SubredditScreen = ({ navigation }: SubredditScreenProps): JSX.Element => {
   useEffect(() => {
     getPosts().then((p) => {
       setPosts(p);
-      console.log(p.length);
     });
   }, []);
   return (
     <View>
-      {posts &&
-        posts.map((p) => (
-          <Pressable
-            onPress={() => navigation.navigate("Post", { url: p.url })}
-            key={p.id}
-          >
-            <Text>{p.title}</Text>
-          </Pressable>
-        ))}
+      {posts && (
+        <FlatList
+          data={posts}
+          renderItem={({ item }) => (
+            <PostListItem post={item} navigation={navigation} />
+          )}
+          keyExtractor={(p) => p.id}
+        />
+      )}
     </View>
   );
 };

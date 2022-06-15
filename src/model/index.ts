@@ -3,7 +3,7 @@ export type Post = {
   title: string;
   author: string;
   score: number;
-  thumbnail: string;
+  thumbnail?: string;
   url: string;
   numComments: number;
   created: Date;
