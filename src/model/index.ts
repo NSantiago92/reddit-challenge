@@ -7,4 +7,5 @@ export type Post = {
   url: string;
   numComments: number;
   created: Date;
+  subreddit: string;
 };

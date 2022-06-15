@@ -33,6 +33,7 @@ const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
         </View>
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{post.title}</Text>
+          <Text style={styles.subreddit}>{post.subreddit}</Text>
           <View style={styles.detailsSubContainer}>
             <Text style={styles.comments}>{post.numComments} comments</Text>
             <Text style={styles.date}>
@@ -75,6 +76,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: "bold",
+  },
+  subreddit: {
+    fontSize: 13,
+    alignSelf: "flex-end",
   },
   comments: {
     fontSize: 13,

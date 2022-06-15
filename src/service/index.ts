@@ -16,6 +16,7 @@ export async function getPosts(): Promise<Post[]> {
         url,
         num_comments: numComments,
         created_utc,
+        subreddit,
       },
     }) => ({
       author,
@@ -26,6 +27,7 @@ export async function getPosts(): Promise<Post[]> {
       url,
       numComments,
       created: new Date(created_utc * 1000),
+      subreddit,
     })
   );
   return posts;
