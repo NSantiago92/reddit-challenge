@@ -12,8 +12,9 @@ interface PostListItemProps {
 
 const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
   const thumbnailSrc = (() => {
+    if (!post.thumbnail) return require("../../assets/default_thumbnail.png");
     switch (post.thumbnail) {
-      case "" || "self" || "image" || "default":
+      case "self" || "image" || "default":
         return require("../../assets/default_thumbnail.png");
       case "nsfw":
         return require("../../assets/default_thumbnail_nsfw.png");
