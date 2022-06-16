@@ -71,10 +71,13 @@ const SubredditScreen = ({
           onRefresh={() => loadPosts()}
           refreshing={refreshing}
           ListHeaderComponent={
-            <SortByMenu sortBy={sortBy} setSortBy={setSortBy} />
+            <SortByMenu sortBy={sortBy} setSortBy={(newS) => setSortBy(newS)} />
           }
           renderItem={({ item }) => (
-            <PostListItem post={item} navigation={navigation} />
+            <PostListItem
+              post={item}
+              goToPost={(url, title) => navigation.push("Post", { url, title })}
+            />
           )}
           keyExtractor={(p) => p.id}
         />

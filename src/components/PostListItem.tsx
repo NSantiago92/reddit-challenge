@@ -1,16 +1,15 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Post } from "../model";
-import { SubredditNavProps } from "../screens/SubredditScreen";
 import kFormatter from "../utils/kFormatter";
 import relativeDate from "../utils/relativeDate";
 
 interface PostListItemProps {
   post: Post;
-  navigation: SubredditNavProps["navigation"];
+  goToPost: (url: string, title: string) => void;
 }
 
-const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
+const PostListItem = ({ post, goToPost }: PostListItemProps): JSX.Element => {
   const thumbnailSrc = (() => {
     if (!post.thumbnail) return require("../../assets/default_thumbnail.png");
     switch (post.thumbnail) {
@@ -24,11 +23,7 @@ const PostListItem = ({ post, navigation }: PostListItemProps): JSX.Element => {
   })();
 
   return (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.push("Post", { url: post.url, title: post.title })
-      }
-    >
+    <TouchableOpacity onPress={() => goToPost(post.url, post.title)}>
       <View style={styles.container}>
         <View style={styles.scoreContainer}>
           <Text style={styles.score}>{kFormatter(post.score)}</Text>

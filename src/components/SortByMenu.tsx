@@ -1,10 +1,10 @@
-import React, { Dispatch } from "react";
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SortBy, SORT_OPTIONS } from "../model";
 
 interface SortByMenuProps {
   sortBy: SortBy;
-  setSortBy: Dispatch<SortBy>;
+  setSortBy: (newSort: SortBy) => void;
 }
 
 const SortByMenu = ({ sortBy, setSortBy }: SortByMenuProps): JSX.Element => {
