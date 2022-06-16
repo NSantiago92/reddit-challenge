@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostListItem/> renders correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "padding": 2,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "margin": 3,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        4720
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 2,
+          "margin": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#0000cd",
+            "fontSize": 15,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "backgroundColor": "#dcdcdc",
+              "color": "black",
+              "fontSize": 13,
+              "fontWeight": "normal",
+            }
+          }
+        >
+           
+          alexflemingart
+           
+        </Text>
+        [OC] Here's an African Elephant I drew in charcoal. ~100 hours work. Have a great Wednesday!
+        <Text
+          style={
+            Object {
+              "color": "#575757",
+              "fontSize": 13,
+              "fontWeight": "normal",
+            }
+          }
+        >
+           (
+          r/pics
+          )
+        </Text>
+      </Text>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 3,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 13,
+            }
+          }
+        >
+          224
+           comments
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 13,
+              "fontStyle": "italic",
+            }
+          }
+        >
+          160 months ago
+        </Text>
+      </View>
+    </View>
+    <View
+      style={Object {}}
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://b.thumbs.redditmedia.com/8qowQW91JVgb5ktjKg6biACUVQ13i5N882Zn0JmPvgY.jpg",
+          }
+        }
+        style={
+          Object {
+            "height": 64,
+            "width": 64,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
