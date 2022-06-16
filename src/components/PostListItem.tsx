@@ -30,6 +30,7 @@ const PostListItem = ({ post, goToPost }: PostListItemProps): JSX.Element => {
         </View>
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>
+            <Text style={styles.author}> {post.author} </Text>
             {post.title}
             <Text style={styles.subreddit}> ({post.subreddit})</Text>
           </Text>
@@ -72,8 +73,15 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   title: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: "bold",
+    color: "#0000cd",
+  },
+  author: {
+    fontSize: 13,
+    fontWeight: "normal",
+    color: "black",
+    backgroundColor: "#dcdcdc",
   },
   subreddit: {
     fontSize: 13,
