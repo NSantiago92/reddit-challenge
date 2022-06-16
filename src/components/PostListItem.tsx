@@ -23,7 +23,10 @@ const PostListItem = ({ post, goToPost }: PostListItemProps): JSX.Element => {
   })();
 
   return (
-    <TouchableOpacity onPress={() => goToPost(post.url, post.title)}>
+    <TouchableOpacity
+      onPress={() => goToPost(post.url, post.title)}
+      testID="post-container"
+    >
       <View style={styles.container}>
         <View style={styles.scoreContainer}>
           <Text style={styles.score}>{kFormatter(post.score)}</Text>

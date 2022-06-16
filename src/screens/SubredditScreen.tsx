@@ -57,7 +57,10 @@ const SubredditScreen = ({
 
   if (status === "loading")
     return (
-      <View style={{ flex: 1, justifyContent: "center" }}>
+      <View
+        style={{ flex: 1, justifyContent: "center" }}
+        testID="loading-container"
+      >
         <ActivityIndicator size="large" />
       </View>
     );

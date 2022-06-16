@@ -17,6 +17,7 @@ exports[`<PostListItem/> renders correctly 1`] = `
       "opacity": 1,
     }
   }
+  testID="post-container"
 >
   <View
     style={

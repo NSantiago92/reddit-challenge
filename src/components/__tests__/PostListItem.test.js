@@ -14,10 +14,11 @@ const testPost = {
     "[OC] Here's an African Elephant I drew in charcoal. ~100 hours work. Have a great Wednesday!",
   url: "https://i.redd.it/uvl9v7s9ur591.jpg",
 };
-
-it("<PostListItem/> renders correctly", () => {
-  const tree = renderer
-    .create(<PostListItem post={testPost} goToPost={() => {}} />)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+describe("<PostListItem/>", () => {
+  it("renders correctly", () => {
+    const tree = renderer
+      .create(<PostListItem post={testPost} goToPost={() => {}} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
