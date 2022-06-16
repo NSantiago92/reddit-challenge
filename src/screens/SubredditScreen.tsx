@@ -61,7 +61,7 @@ const SubredditScreen = ({
         <ActivityIndicator size="large" />
       </View>
     );
-  if (status === "error") return <ErrorScreen />;
+  if (status === "error") return <ErrorScreen onRefresh={() => loadPosts()} />;
 
   return (
     <View>

@@ -25,14 +25,14 @@ export default function App() {
           component={SubredditScreen}
           initialParams={{ subreddit: "pics" }}
           options={({ route }) => ({
-            title: limitString("r/" + route.params.subreddit, 30),
+            title: limitString("r/" + route.params.subreddit, 32),
           })}
         />
         <rootStack.Screen
           name="Post"
           component={PostScreen}
           options={({ route }) => ({
-            title: limitString(route.params.title, 30),
+            title: limitString(route.params.title, 32),
           })}
         />
       </rootStack.Navigator>
