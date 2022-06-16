@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import { SortBy } from "./src/model";
 import PostScreen from "./src/screens/PostScreen";
 import SubredditScreen from "./src/screens/SubredditScreen";
+import limitString from "./src/utils/limitString";
 
 export type RootStackParams = {
   Subreddit: { subreddit: string };
@@ -23,12 +24,16 @@ export default function App() {
           name="Subreddit"
           component={SubredditScreen}
           initialParams={{ subreddit: "pics" }}
-          options={({ route }) => ({ title: "r/" + route.params.subreddit })}
+          options={({ route }) => ({
+            title: limitString("r/" + route.params.subreddit, 30),
+          })}
         />
         <rootStack.Screen
           name="Post"
           component={PostScreen}
-          options={({ route }) => ({ title: route.params.title })}
+          options={({ route }) => ({
+            title: limitString(route.params.title, 30),
+          })}
         />
       </rootStack.Navigator>
     </NavigationContainer>
